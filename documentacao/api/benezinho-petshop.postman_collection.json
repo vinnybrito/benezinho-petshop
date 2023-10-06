@@ -144,6 +144,49 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "PJ",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjMwOTk1fQ.dX3Lh4s3EEHNHiHU2ntZwjkzIdT-TQRBgC0HD2ptS8w",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "privateKey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Benezinho Holding SA\",\r\n    \"nascimento\": \"2000-03-08\",\r\n    \"cnpj\": \"010223872891864\",\r\n    \"email\": \"holding@benezinho.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/pj",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"pj"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "Você pode cadastrar um novo usuário:\n\n<img src=\"https://content.pstmn.io/f101bef4-96f8-4933-ac5d-7aa1a2f5d807/aW1hZ2UucG5n\" alt=\"Exemplo%20de%20como%20se%20cadastra%20um%20usuário\" width=\"2015\" height=\"531\">"
@@ -186,159 +229,209 @@
 			"name": "003 - ANIMAL",
 			"item": [
 				{
-					"name": "cachorro",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost/api/cachorro",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"cachorro"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CACHORRO",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"dono\": {\r\n        \"id\": 1\r\n    },\r\n    \"nascimento\": \"2023-10-05\",\r\n    \"nome\": \"Pith\",\r\n    \"raca\": \"Bull\",\r\n    \"servicos\": null,\r\n    \"sexo\": \"FEMININO\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "PERSISTE",
+					"item": [
+						{
+							"name": "CACHORRO",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dono\": {\r\n        \"id\": 1\r\n    },\r\n    \"nascimento\": \"2023-10-05\",\r\n    \"nome\": \"Pith\",\r\n    \"raca\": \"Bull\",\r\n    \"servicos\": null,\r\n    \"sexo\": \"FEMININO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/api/cachorro",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"cachorro"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost/api/cachorro",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"cachorro"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GATO",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"dono\": {\r\n        \"id\": 1\r\n    },\r\n    \"nascimento\": \"2020-10-05\",\r\n    \"nome\": \"Miauuuuuuu\",\r\n    \"raca\": \"Ciberiano\",\r\n    \"servicos\": null,\r\n    \"sexo\": \"MASCULINO\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "GATO",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dono\": {\r\n        \"id\": 1\r\n    },\r\n    \"nascimento\": \"2020-10-05\",\r\n    \"nome\": \"Miauuuuuuu\",\r\n    \"raca\": \"Ciberiano\",\r\n    \"servicos\": null,\r\n    \"sexo\": \"MASCULINO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/api/gato",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"gato"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost/api/gato",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"gato"
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "gato",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost/api/gato",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"gato"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CACHORRO",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"dono\": {\r\n        \"id\": 1\r\n    },\r\n    \"nascimento\": \"2023-10-05\",\r\n    \"nome\": \"Pith Bitoca\",\r\n    \"raca\": \"Bull Terrier\",\r\n    \"servicos\": null,\r\n    \"sexo\": \"MASCULINO\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "CONSULTA",
+					"item": [
+						{
+							"name": "cachorro",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/api/cachorro",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"cachorro"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost/api/cachorro/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"cachorro",
-								"1"
-							]
+						{
+							"name": "gato",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/api/gato",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"gato"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "GATO",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"dono\": {\r\n        \"id\": 1\r\n    },\r\n    \"nascimento\": \"2023-10-05\",\r\n    \"nome\": \"Ciamês\",\r\n    \"raca\": \"Rasga Saco\",\r\n    \"servicos\": null,\r\n    \"sexo\": \"MASCULINO\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "UPDATE",
+					"item": [
+						{
+							"name": "CACHORRO",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dono\": {\r\n        \"id\": 1\r\n    },\r\n    \"nascimento\": \"2023-10-05\",\r\n    \"nome\": \"Pith Bitoca\",\r\n    \"raca\": \"Bull Terrier\",\r\n    \"servicos\": null,\r\n    \"sexo\": \"MASCULINO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/api/cachorro/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"cachorro",
+										"1"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost/api/gato/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"path": [
-								"api",
-								"gato",
-								"2"
-							]
+						{
+							"name": "GATO",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"dono\": {\r\n        \"id\": 1\r\n    },\r\n    \"nascimento\": \"2023-10-05\",\r\n    \"nome\": \"Ciamês\",\r\n    \"raca\": \"Rasga Saco\",\r\n    \"servicos\": null,\r\n    \"sexo\": \"MASCULINO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost/api/gato/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"api",
+										"gato",
+										"2"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				}
 			],
-			"description": "Aqui você poderá cadastrar o seu Pet:\n\n<img src=\"https://content.pstmn.io/9fb0fe96-2d45-487e-9082-c43f87f34d9a/aW1hZ2UucG5n\" width=\"2010\" height=\"668\">"
+			"description": "Aqui você poderá cadastrar o seu Pet:\n\n<img src=\"https://content.pstmn.io/9fb0fe96-2d45-487e-9082-c43f87f34d9a/aW1hZ2UucG5n\" width=\"2010\" height=\"668\">",
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "key",
+						"value": "privateKey",
+						"type": "string"
+					},
+					{
+						"key": "value",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjI3NTkzfQ.XgaMaN2W0yHar_YbAu6LfldxOy3dXnzit3HudGGU7-4",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "004 - SERVICO",
