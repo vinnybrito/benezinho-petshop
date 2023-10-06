@@ -1,14 +1,22 @@
 package br.com.fiap.petshop.domain.entity;
 
 import br.com.fiap.petshop.infra.security.entity.Pessoa;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
+
+
 public class Documento implements Serializable {
+
+
 
     private Long id;
 
+
     private String numero;
+
+
 
     private Pessoa pessoa;
 

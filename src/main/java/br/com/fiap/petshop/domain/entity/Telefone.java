@@ -1,14 +1,20 @@
 package br.com.fiap.petshop.domain.entity;
 
 import br.com.fiap.petshop.infra.security.entity.Pessoa;
+import jakarta.persistence.*;
+
 
 public class Telefone {
 
+
     private Long id;
+
 
     private int ddd;
 
+
     private String numero;
+
 
     private Pessoa pessoa;
 

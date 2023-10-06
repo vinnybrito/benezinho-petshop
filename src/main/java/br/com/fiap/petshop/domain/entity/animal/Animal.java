@@ -3,30 +3,53 @@ package br.com.fiap.petshop.domain.entity.animal;
 import br.com.fiap.petshop.domain.entity.Sexo;
 import br.com.fiap.petshop.domain.entity.servico.Servico;
 import br.com.fiap.petshop.infra.security.entity.Pessoa;
+import br.com.fiap.petshop.infra.security.entity.PessoaFisica;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.Objects;
 import java.util.Set;
 
-public abstract class Animal {
+
+
+public class Animal {
+
 
     private Long id;
+
+
     private String nome;
+
     private Sexo sexo;
+
     private LocalDate nascimento;
+
     private String raca;
+
+
     private String descricao;
+
     private String observacao;
+
+
+    private String tipo;
+
+
+
     private Pessoa dono;
 
-    private Set<Servico> servicos = new LinkedHashSet<>();
+
 
     public Animal() {
     }
 
-    public Animal(Long id, String nome, Sexo sexo, LocalDate nascimento, String raca, String descricao, String observacao, Pessoa dono, Set<Servico> servicos) {
+
+    public Animal(String tipo) {
+        this.tipo = tipo;
+    }
+
+
+    public Animal(Long id, String nome, Sexo sexo, LocalDate nascimento, String raca, String descricao, String observacao, String tipo, Pessoa dono) {
         this.id = id;
         this.nome = nome;
         this.sexo = sexo;
@@ -34,25 +57,8 @@ public abstract class Animal {
         this.raca = raca;
         this.descricao = descricao;
         this.observacao = observacao;
+        this.tipo = tipo;
         this.dono = dono;
-        this.servicos = Objects.nonNull( servicos ) ? servicos : new LinkedHashSet<>();
-    }
-
-    public Animal adicionaServico(Servico s) {
-        this.servicos.add( s );
-        s.setAnimal( this );
-        return this;
-    }
-
-    public Animal removeaServico(Servico s) {
-        this.servicos.remove( s );
-        if (s.getAnimal().equals( this )) s.setAnimal( null );
-        return this;
-    }
-
-
-    public Set<Servico> getServicos() {
-        return Collections.unmodifiableSet( servicos );
     }
 
     public Long getId() {
@@ -118,6 +124,15 @@ public abstract class Animal {
         return this;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public Animal setTipo(String tipo) {
+        this.tipo = tipo;
+        return this;
+    }
+
     public Pessoa getDono() {
         return dono;
     }
@@ -138,6 +153,7 @@ public abstract class Animal {
                 ", raca='" + raca + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", observacao='" + observacao + '\'' +
+                ", tipo='" + tipo + '\'' +
                 ", dono=" + dono +
                 '}';
     }

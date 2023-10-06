@@ -1,32 +1,41 @@
 package br.com.fiap.petshop.domain.entity.servico;
 
 import br.com.fiap.petshop.domain.entity.animal.Animal;
+import jakarta.json.bind.annotation.JsonbDateFormat;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public abstract class Servico {
+
+public  class Servico {
+
 
     private Long id;
 
     private BigDecimal valor;
 
-    private LocalDateTime abertura;
+    @JsonbDateFormat
+    private LocalDateTime abertura = LocalDateTime.now();
 
+    @JsonbDateFormat
     private LocalDateTime autorizacao;
 
+    @JsonbDateFormat
     private LocalDateTime conclusao;
 
     private String descricao;
 
     private String observacao;
 
+
+
     private Animal animal;
 
-    public Servico() {
+    protected Servico() {
     }
 
-    public Servico(Long id, BigDecimal valor, LocalDateTime abertura, LocalDateTime autorizacao, LocalDateTime conclusao, String descricao, String observacao, Animal animal) {
+    protected Servico(Long id, BigDecimal valor, LocalDateTime abertura, LocalDateTime autorizacao, LocalDateTime conclusao, String descricao, String observacao, Animal animal) {
         this.id = id;
         this.valor = valor;
         this.abertura = abertura;
@@ -102,6 +111,7 @@ public abstract class Servico {
         return this;
     }
 
+
     public Animal getAnimal() {
         return animal;
     }
@@ -110,7 +120,6 @@ public abstract class Servico {
         this.animal = animal;
         return this;
     }
-
 
     @Override
     public String toString() {
@@ -122,7 +131,6 @@ public abstract class Servico {
                 ", conclusao=" + conclusao +
                 ", descricao='" + descricao + '\'' +
                 ", observacao='" + observacao + '\'' +
-                ", animal=" + animal +
                 '}';
     }
 }
