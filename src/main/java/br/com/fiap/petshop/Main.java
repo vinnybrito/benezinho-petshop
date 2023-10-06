@@ -22,7 +22,7 @@ import java.net.URI;
 public class Main {
     public static final String BASE_URI = "http://localhost/api/";
 
-    public static final String PERSISTENCE_UNIT = "maria-db";
+    public static final String PERSISTENCE_UNIT = "oracle-home";
 
     @PersistenceContext
     static EntityManager manager;
@@ -36,6 +36,8 @@ public class Main {
                 // .register( UpdatableBCrypt.build(10))
                 // Configure container request filters (JsTokenFilterNeeded)
                 .register(JsTokenFilterNeeded.class)
+                .register( EntityManagerFactoryProvider.class )
+                .register( EntityManagerProvider.class )
                 .register(
                         new AbstractBinder() {
                             @Override
@@ -49,13 +51,15 @@ public class Main {
                             }
                         }
                 ).register(EntityManagerFactoryProvider.of(PERSISTENCE_UNIT).provide())
+
+
                 .packages("br.com.fiap.petshop.domain.resources", "br.com.fiap.petshop.infra.security.resources");
         return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
     }
 
     public static void main(String[] args) {
         final HttpServer server = startServer();
-        System.out.println(String.format("Petshop app started with endpoints available as %s%nHit Ctrl-C to stop it....", BASE_URI + "hello"));
+        System.out.printf( "Petshop app started with endpoints available as %s%nHit Ctrl-C to stop it....%n", BASE_URI + "hello");
         try {
             System.in.read();
             server.stop();
