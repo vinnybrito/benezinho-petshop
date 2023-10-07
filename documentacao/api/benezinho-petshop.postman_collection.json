@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "604bfd76-553a-42e7-a764-6c217e97de8f",
+		"_postman_id": "acc41dc3-2393-40b2-8e9f-c0064a34279f",
 		"name": "Benezinho-petshop",
+		"description": "# Benezinho Petshop 🤓👍🏾\n\nCHECKPOINT - Enterprise Application Development aplicado em 04/10/2023.\n\n|  | **Enterprise Application Development** |\n| --- | --- |\n| **ALUNO:** | **TURMA:** 2TDSPR - 2TDSPT |\n| **PROFESSOR:** Benefrancis do Nascimento | 04/10/2023 |\n| **Checkpoint** |  |\n\n# Sumário\n\n[Estudo de caso](#_Estudo_de_caso)\n\n[O que deverá ser feito?](#_O_que_devera_ser_feito)\n\n[Diagrama de Classes](#_Diagrama_de_Classes)\n\n[Correção](#_Correcao)\n\n<a href=\"null\"></a>\n\n# Estudo de caso\n\nA Holding Benezinho\n\n<img src=\"RackMultipart20230510-1-eptqiz_html_5188b812c34f88e5.png\">\n\ndeseja atuar no ramo de Petshop fornecendo servços de Banho, Tosa, Vacinação e Consultas Veterinárias, entretanto não conseguiu encontrar no mercado um sistema para gerir este novo negócio.  \nContratamos você como Engenheiro de Software para ajudar a construir esse sistema.\n\nNa sprint atual, você foi incumbido de fazer:\n\n1. O Mapeamento Objeto Relacional das primeiras classes envolvidas neste projeto de software;\n2. A criação automatizada das tabelas no banco de dados Oracle;\n3. A persistência de todos os dados, e;\n4. A criação de dos métodos capazes de realizar operações no repositório respeitando a interface genérica Repository:\n    \n    ```\n           1. Consulta todos os objetos findAll;\n           2. Consulta Objeto pelo Id findById;\n           3. Consulta Objeto pelo texto (nome, tipo de Serviço, numero de documento ou numero de telefone) conforme o caso;\n           4. Persistência do Objeto;\n           5. Alteração do Objeto;\n           6. Exclusão do Objeto.\n    \n     ```\n    \n\n<a href=\"null\"></a>\n\n# O que deverá ser feito?\n\n**Faça o Fork do projeto no github do professor :**\n\n[https://github.com/Benefrancis/benezinho-petshop.git](https://github.com/Benefrancis/benezinho-petshop.git)\n\nCaso o github esteja indisponível, você deverá pegar o projeto no diretório compartilhado.\n\n**Você deverá:**\n\nAlterar o arquivo contido em documentacao/equipe.txt para incluir os RMs e nomes e turma da dupla que fará esta atividade.\n\n1. **(0,5 Ponto)** acessar o arquivo persistence.xml e alterar as configurações da **persistence-unit** para que seja possível conectar-se ao banco de dados Oracle da FIAP com o seu usuário e senha (manter o seu usuário e senha ativo é sua responsabilidade). Não utilize o usuário e senha de outro aluno. Caso tenha problema para autenticar, comunique o professor.\n2. **(2,5 Pontos)** adicionar corretamente as anotações JPA na classe **Animal**.Lembre-se que:\n    1. Existe Hernaça entre **Animal**, **Cachorro** e **Gato**\n    2. Existe relacionamento **Muitos para Muitos** entre **Animal** e **Servico** no atributo servicos.\n    3. Existe relacionamento **Muitos para Um** entre **Animal** e **Pessoa** a no atributo dono.\n3. **(2 Ponto)** adicionar corretamente as anotações JPA na classe **Servico**.Lembre-se que:\n    1. Existe Hernaça entre **Servico**, **Banho**, **Consulta** e **Tosa**\n    2. Existe relacionamento Muitos para Um entre Servico e Animal no atributo animal.\n4. **(1,5 Pontos)** adicionar corretamente as anotações JPA na classe **Documento**.Lembre-se que:\n    1. Existe relacionamento **Muitos para Um** entre Documento e Pessoa no atributo pessoa.\n5. **(1,5 Ponto)** adicionar corretamente as anotações JPA na classe **Telefone**.  \n    Lembre-se que:\n    1. Existe relacionamento **Muitos para Um** entre Telefone e Pessoa no atributo pessoa.\n6. **(2 Pontos)** Implementar corretamente os métodos das classes que devem implementar a interface genérica **Repository**  \n    Deverá implementar:\n    1. AnimalRepository;\n    2. ServicoRepository;\n    3. DocumentoRepository;\n    4. TelefoneRepository;\n\n<a href=\"null\"></a>\n\n# Diagrama de Classes de Domínio\n\n<img src=\"documentacao/uml/domain.png\">\n\n<img src=\"https://content.pstmn.io/7ce8d1e1-0026-428e-bfcb-c294139cf53c/ZG9tYWluLnBuZw==\" alt=\"\">\n\n# Diagrama de Classes de Infra e Segurança\n\n<img src=\"documentacao/uml/security.png\">\n\n<img src=\"https://content.pstmn.io/2d4147de-75e2-4643-8d59-8628ac94f026/c2VjdXJpdHkucG5n\" alt=\"\">\n\n<a href=\"null\"></a>\n\n# Correção da Prova\n\nA correção da prova será disponibilizada no github do professor (branch correcao):\n\nPara acessar digite no prompt:\n\n``` shell\ngit clone https://github.com/Benefrancis/benezinho-petshop.git && cd benezinho-petshop && git checkout correcao\n\n ```\n\nA atividade é em dupla, em caso de fraude de qualquer tipo todos os envolvidos receberão nota ZERO.\n\nBoa prova.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "1524675",
-		"_collection_link": "https://benefrancis-0803.postman.co/workspace/Keyclock~93df9411-a0f6-46ba-b611-cf6bc7dceb77/collection/1524675-604bfd76-553a-42e7-a764-6c217e97de8f?action=share&source=collection_link&creator=1524675"
+		"_exporter_id": "1524675"
 	},
 	"item": [
 		{
@@ -40,6 +40,40 @@
 				},
 				{
 					"name": "PF",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate that the response is an array\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('array');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate 'cpf' is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function (item) {",
+									"        pm.expect(item.cpf).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -59,6 +93,46 @@
 				},
 				{
 					"name": "PF/id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response is an array\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('array');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response array is empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array').that.is.empty;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Verify that the response is not null\", function () {",
+									"  pm.expect(pm.response.json()).to.not.be.null;",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -79,13 +153,111 @@
 				},
 				{
 					"name": "PJ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response is an array\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"\r",
+									"  pm.expect(responseData).to.be.an('array');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response array is empty\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    pm.expect(responseData).to.have.lengthOf(0);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is less than 500ms\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the structure of the response\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the structure of the response\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    responseData.forEach(function(item) {\r",
+									"        pm.expect(item).to.be.an('object');\r",
+									"        pm.expect(item.id).to.exist.and.to.be.a('string');\r",
+									"        pm.expect(item.name).to.exist.and.to.be.a('string');\r",
+									"        pm.expect(item.date).to.exist.and.to.be.a('string');\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the response array is not null or undefined\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.not.be.null;\r",
+									"    pm.expect(responseData).to.not.be.undefined;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the response array contains only objects\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    \r",
+									"    responseData.forEach(function(item) {\r",
+									"        pm.expect(item).to.be.an('object');\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the response array does not contain any duplicate items\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    \r",
+									"    const uniqueItems = new Set(responseData);\r",
+									"    pm.expect(uniqueItems.size).to.equal(responseData.length, \"Array contains duplicate items\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the response array is sorted in ascending order by id\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    \r",
+									"    if (responseData.length > 1) {\r",
+									"        for (let i = 0; i < responseData.length - 1; i++) {\r",
+									"            pm.expect(responseData[i].id).to.be.at.most(responseData[i + 1].id);\r",
+									"        }\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "apikey",
 							"apikey": [
 								{
 									"key": "value",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NTQzMTk2fQ.qLY4VKPgbrFVXjXds-__tfQbBN_x_0N0P6vJcJGy5W4",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjQ1NDEwfQ.-S1KlHDh0isleWYjeOGJJD9-gawJnjmG3ctcUzwSNzM",
 									"type": "string"
 								},
 								{
@@ -113,13 +285,96 @@
 				},
 				{
 					"name": "PJ/id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"  pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response body is an array\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData).to.be.an('array');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response body is empty\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array').that.is.empty;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify response headers\", function () {\r",
+									"    pm.response.headers.each(function (header) {\r",
+									"        switch (header.key) {\r",
+									"            case \"Content-Type\":\r",
+									"                pm.expect(header.value).to.include(\"application/json\");\r",
+									"                break;\r",
+									"            case \"Access-Control-Allow-Origin\":\r",
+									"                pm.expect(header.value).to.include(\"*\");\r",
+									"                break;\r",
+									"            case \"Cache-Control\":\r",
+									"                pm.expect(header.value).to.include(\"no-cache, no-store, must-revalidate\");\r",
+									"                break;\r",
+									"            // Add more cases for other expected headers if needed\r",
+									"        }\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify the response body length is 0\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData).to.be.an('array').and.to.have.lengthOf(0);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the 'Content-Type' header is present and has the value 'application/json'\", function () {\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify Access-Control-Allow-Origin header\", function () {\r",
+									"  pm.expect(pm.response.headers.has(\"Access-Control-Allow-Origin\")).to.be.true;\r",
+									"  pm.expect(pm.response.headers.get(\"Access-Control-Allow-Origin\")).to.equal(\"*\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the Cache-Control header is present and has the value 'no-cache, no-store, must-revalidate'\", function () {\r",
+									"    pm.response.headers.has(\"Cache-Control\");\r",
+									"    pm.expect(pm.response.headers.get(\"Cache-Control\")).to.equal(\"no-cache, no-store, must-revalidate\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the 'Content-Length' header is present and has the value 0\", function () {\r",
+									"    pm.expect(pm.response.headers.has('Content-Length')).to.be.true;\r",
+									"    pm.expect(pm.response.headers.get('Content-Length')).to.equal('0');\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "apikey",
 							"apikey": [
 								{
 									"key": "value",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NTQzMTk2fQ.qLY4VKPgbrFVXjXds-__tfQbBN_x_0N0P6vJcJGy5W4",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjQ1NDEwfQ.-S1KlHDh0isleWYjeOGJJD9-gawJnjmG3ctcUzwSNzM",
 									"type": "string"
 								},
 								{
@@ -132,14 +387,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost/api/pj",
+							"raw": "http://localhost/api/pj/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"path": [
 								"api",
-								"pj"
+								"pj",
+								"3"
 							]
 						}
 					},
@@ -153,7 +409,7 @@
 							"apikey": [
 								{
 									"key": "value",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjMwOTk1fQ.dX3Lh4s3EEHNHiHU2ntZwjkzIdT-TQRBgC0HD2ptS8w",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjQ1NDEwfQ.-S1KlHDh0isleWYjeOGJJD9-gawJnjmG3ctcUzwSNzM",
 									"type": "string"
 								},
 								{
@@ -187,6 +443,49 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "PJ BANK",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjQzNjgwfQ.GkYQZKpivzDeL2aGUa5sYdjgFwrZ8WVAolgvmdh9CKo",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "privateKey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Benezinho Bank SA\",\r\n    \"nascimento\": \"2000-03-08\",\r\n    \"cnpj\": \"010223872891854\",\r\n    \"email\": \"bank@benezinho.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/pj",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"pj"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "Você pode cadastrar um novo usuário:\n\n<img src=\"https://content.pstmn.io/f101bef4-96f8-4933-ac5d-7aa1a2f5d807/aW1hZ2UucG5n\" alt=\"Exemplo%20de%20como%20se%20cadastra%20um%20usuário\" width=\"2015\" height=\"531\">"
@@ -195,13 +494,198 @@
 			"name": "002 - Autenticação",
 			"item": [
 				{
-					"name": "LOGIN",
+					"name": "LOGIN PF",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate the authorities object\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData).to.be.an('object');\r",
+									"  pm.expect(responseData.authorities).to.exist.and.to.be.an('array').that.is.not.empty;\r",
+									"  \r",
+									"  responseData.authorities.forEach(function(authority) {\r",
+									"    pm.expect(authority).to.be.an('object');\r",
+									"    pm.expect(authority.id).to.exist.and.to.be.a('number');\r",
+									"    pm.expect(authority.nome).to.exist.and.to.be.a('string');\r",
+									"  });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate the authorization field is not empty\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData.authorization).to.exist.and.to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"The id field is a non-negative integer\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    pm.expect(responseData.id).to.exist.and.to.be.a('number');\r",
+									"    pm.expect(responseData.id).to.be.at.least(0, \"Value should be a non-negative integer\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate the password field is not empty\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  pm.expect(responseData.password).to.exist.and.to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									"// Test for common fields\r",
+									"pm.test(\"Validate common fields\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData.username).to.exist.and.to.be.a('string');\r",
+									"    pm.expect(responseData.pessoa).to.exist.and.to.be.a('number');\r",
+									"});\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the 'authorities' array\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.authorities).to.be.an('array');\r",
+									"    responseData.authorities.forEach(function(authority) {\r",
+									"        pm.expect(authority).to.be.an('object');\r",
+									"        pm.expect(authority.id).to.exist.and.to.be.a('number');\r",
+									"        pm.expect(authority.nome).to.exist.and.to.be.a('string');\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the authorization field\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"\r",
+									"  pm.expect(responseData).to.be.an('object');\r",
+									"  pm.expect(responseData.authorization).to.exist.and.to.be.a('string');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the 'id' field\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.id).to.exist.and.to.be.a('number');\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the password field\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"\r",
+									"  pm.expect(responseData).to.be.an('object');\r",
+									"  pm.expect(responseData.password).to.exist.and.to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"username\": \"benefrancis@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost/api/authorization",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"authorization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN PJ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the authorities object\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData).to.be.an('object');\r",
+									"  pm.expect(responseData.authorities).to.exist.and.to.be.an('array').that.is.not.empty;\r",
+									"  \r",
+									"  responseData.authorities.forEach(function(authority) {\r",
+									"    pm.expect(authority).to.be.an('object');\r",
+									"    pm.expect(authority.id).to.exist.and.to.be.a('number');\r",
+									"    pm.expect(authority.nome).to.exist.and.to.be.a('string');\r",
+									"  });\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the authorization field is not empty\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    pm.expect(responseData.authorization).to.exist.and.to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"The id field is a non-negative integer\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.id).to.exist.and.to.be.a('number');\r",
+									"    pm.expect(responseData.id).to.be.at.least(0, \"Value should be a non-negative integer\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the password field is not empty\", function () {\r",
+									"  const responseData = pm.response.json();\r",
+									"  \r",
+									"  pm.expect(responseData.password).to.exist.and.to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjM1NjQ1fQ.xQJ8ApKqFhlyBnlxN7g-fWTnRdPALjLqkJToh4tMHg8",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "privateKey",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"holding@benezinho.com\",\r\n    \"password\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -233,6 +717,77 @@
 					"item": [
 						{
 							"name": "CACHORRO",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 201\", function () {",
+											"    pm.expect(pm.response.code).to.equal(201);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Email is in a valid format\", function () {",
+											"  const responseData = pm.response.json();",
+											"",
+											"  pm.expect(responseData.dono).to.exist.and.to.be.an('object');",
+											"  pm.expect(responseData.dono.email).to.exist.and.to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate that 'nascimento' is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData.nascimento).to.be.a('string').and.to.have.lengthOf.at.least(1, \"'nascimento' should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate 'nome' is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.nome).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"pm.test(\"Response status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate that 'dono' object is present in the response\", function () {",
+											"  const responseData = pm.response.json();",
+											"",
+											"  pm.expect(responseData.dono).to.exist.and.to.be.an('object');",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the 'nome' field is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.nome).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the 'raca' field is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.raca).to.exist.and.to.be.a('string');",
+											"    pm.expect(responseData.raca).to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that 'tipo' field is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.tipo).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -261,6 +816,68 @@
 						},
 						{
 							"name": "GATO",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 201\", function () {",
+											"    pm.response.to.have.status(201);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Email is in a valid format\", function () {",
+											"  const responseData = pm.response.json();",
+											"",
+											"  pm.expect(responseData.dono.email).to.match(/^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$/);",
+											"});",
+											"",
+											"",
+											"pm.test(\"The id and cpf fields in the dono object are non-negative integers\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.dono).to.be.an('object');",
+											"    pm.expect(responseData.dono.id).to.be.a('number').and.to.be.at.least(0, \"Value should be a non-negative integer\");",
+											"    pm.expect(responseData.dono.cpf).to.be.a('number').and.to.be.at.least(0, \"Value should be a non-negative integer\");",
+											"});",
+											"pm.test(\"Response has the required fields\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData).to.have.property('dono');",
+											"    pm.expect(responseData).to.have.property('nascimento');",
+											"    pm.expect(responseData).to.have.property('nome');",
+											"    pm.expect(responseData).to.have.property('raca');",
+											"    pm.expect(responseData).to.have.property('sexo');",
+											"    pm.expect(responseData).to.have.property('tipo');",
+											"});",
+											"",
+											"",
+											"pm.test(\"Email field is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData.dono.email).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Email field should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"The nome field is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.nome).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"The sexo field should be either 'M' or 'F'\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.sexo).to.be.oneOf(['M', 'F']);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -294,6 +911,151 @@
 					"item": [
 						{
 							"name": "cachorro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"  pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"ID is a non-negative integer\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  responseData.forEach(function (dog) {",
+											"    pm.expect(dog.id).to.be.a('number');",
+											"    pm.expect(dog.id).to.be.at.least(0, \"ID should be a non-negative integer\");",
+											"  });",
+											"});",
+											"",
+											"",
+											"pm.test(\"Nascimento is in a valid date format\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData).to.be.an('array');",
+											"    responseData.forEach(function (item) {",
+											"        pm.expect(item.nascimento).to.match(/^\\d{4}-\\d{2}-\\d{2}$/);",
+											"    });",
+											"});pm.test(\"Response is an array\", function () {",
+											"    pm.expect(pm.response.json()).to.be.an('array');",
+											"});",
+											"",
+											"pm.test(\"Each dog has a non-empty name\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    responseData.forEach(function (dog) {",
+											"        pm.expect(dog.nome).to.be.a('string').and.to.not.be.empty;",
+											"    });",
+											"});",
+											"",
+											"pm.test(\"Each dog has a non-empty race\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    responseData.forEach(function (dog) {",
+											"        pm.expect(dog.raca).to.be.a('string').and.to.not.be.empty;",
+											"    });",
+											"});",
+											"",
+											"pm.test(\"Each dog has a non-empty sex\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    responseData.forEach(function (dog) {",
+											"        pm.expect(dog.sexo).to.be.a('string').and.to.not.be.empty;",
+											"    });",
+											"});",
+											"",
+											"pm.test(\"Each dog has a non-empty type\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    responseData.forEach(function (dog) {",
+											"        pm.expect(dog.tipo).to.be.a('string').and.to.not.be.empty;",
+											"    });",
+											"});",
+											"",
+											"pm.test(\"Each dog's owner has a non-empty name\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    responseData.forEach(function (dog) {",
+											"        pm.expect(dog.dono.nome).to.be.a('string').and.to.not.be.empty;",
+											"    });",
+											"});",
+											"",
+											"pm.test(\"Each dog's owner has a valid email format\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    responseData.forEach(function (dog) {",
+											"        pm.expect(dog.dono.email).to.match(/^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$/);",
+											"    });",
+											"});",
+											"pm.test(\"Response has the required fields\", function () {",
+											"  const responseData = pm.response.json();",
+											"  const requiredFields = [\"id\", \"nome\", \"raca\", \"sexo\", \"tipo\", \"dono\"];",
+											"",
+											"  pm.expect(responseData).to.be.an('array');",
+											"",
+											"  responseData.forEach(function (cachorro) {",
+											"    pm.expect(cachorro).to.be.an('object');",
+											"",
+											"    requiredFields.forEach(function (field) {",
+											"      pm.expect(cachorro[field]).to.exist;",
+											"    });",
+											"  });",
+											"});",
+											"",
+											"",
+											"pm.test(\"ID is a non-negative integer\", function () {",
+											"  const responseData = pm.response.json();",
+											"",
+											"  pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+											"",
+											"  responseData.forEach(function (item) {",
+											"    pm.expect(item.id).to.be.a('number').and.to.be.at.least(0);",
+											"  });",
+											"});",
+											"",
+											"",
+											"pm.test(\"Nascimento is in a valid date format\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('array');",
+											"  ",
+											"  responseData.forEach(function(cachorro) {",
+											"    pm.expect(cachorro.nascimento).to.match(/^\\d{4}-\\d{2}-\\d{2}$/);",
+											"  });",
+											"});",
+											"",
+											"",
+											"pm.test(\"Each dog's owner has a non-empty CPF\", function () {",
+											"  const responseData = pm.response.json();",
+											"",
+											"  pm.expect(responseData).to.be.an('array');",
+											"",
+											"  responseData.forEach(function(dog) {",
+											"    pm.expect(dog.dono).to.exist;",
+											"    pm.expect(dog.dono.cpf).to.exist.and.to.have.lengthOf.at.least(1, \"CPF should not be empty\");",
+											"  });",
+											"});",
+											"",
+											"",
+											"pm.test(\"Each dog's owner has a non-empty sex\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+											"    ",
+											"    responseData.forEach(function (dog) {",
+											"        pm.expect(dog.dono).to.exist;",
+											"        pm.expect(dog.dono.sexo).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"    });",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -313,6 +1075,59 @@
 						},
 						{
 							"name": "gato",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Email is in a valid format\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    responseData.forEach(function (gato) {",
+											"        pm.expect(gato.dono.email).to.match(/\\S+@\\S+\\.\\S+/);",
+											"    });",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the 'id' field is a non-negative integer\", function () {",
+											"  const responseData = pm.response.json();",
+											"",
+											"  pm.expect(responseData).to.be.an('array');",
+											"  responseData.forEach(function (item) {",
+											"    pm.expect(item.id).to.be.a('number').and.to.be.at.least(0, \"'id' field should be a non-negative integer\");",
+											"  });",
+											"});",
+											"",
+											"",
+											"pm.test(\"The 'nome' field is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('array');",
+											"    responseData.forEach(function (item) {",
+											"        pm.expect(item.nome).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"    });",
+											"});",
+											"",
+											"",
+											"pm.test(\"The 'nascimento' field is in a valid date format\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('array');",
+											"  ",
+											"  responseData.forEach(function(gato) {",
+											"    pm.expect(gato.nascimento).to.match(/^\\d{4}-\\d{2}-\\d{2}$/);",
+											"  });",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -337,6 +1152,79 @@
 					"item": [
 						{
 							"name": "CACHORRO",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"  pm.expect(pm.response.code).to.equal(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Email is in a valid format\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData.dono.email).to.match(/^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$/);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the 'id' field is a non-negative integer\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.id).to.be.a('number');",
+											"    pm.expect(responseData.id).to.be.at.least(0);",
+											"});",
+											"",
+											"",
+											"pm.test(\"The 'nome' field is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.nome).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"pm.test(\"Response has required fields\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData.dono).to.exist;",
+											"    pm.expect(responseData.id).to.exist;",
+											"    pm.expect(responseData.nascimento).to.exist;",
+											"    pm.expect(responseData.nome).to.exist;",
+											"    pm.expect(responseData.raca).to.exist;",
+											"    pm.expect(responseData.sexo).to.exist;",
+											"    pm.expect(responseData.tipo).to.exist;",
+											"});",
+											"",
+											"",
+											"pm.test(\"ID is in a valid format\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData.id).to.exist;",
+											"  pm.expect(responseData.id).to.match(/^\\d+$/, \"ID should be a valid number\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"The 'raca' field is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.raca).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"The 'tipo' field is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData.tipo).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "PUT",
 								"header": [],
@@ -366,12 +1254,70 @@
 						},
 						{
 							"name": "GATO",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Response status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Email is in a valid format\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.dono).to.be.an('object');",
+											"    pm.expect(responseData.dono.email).to.exist.and.to.match(/^[\\w-]+(\\.[\\w-]+)*@([\\w-]+\\.)+[a-zA-Z]{2,7}$/);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate that 'id' is a non-zero integer\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData.id).to.be.a('number');",
+											"  pm.expect(responseData.id).to.be.above(0);",
+											"});",
+											"pm.test(\"Dono's email is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.dono.email).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Nascimento is in a valid date format\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData.nascimento).to.match(/^\\d{4}-\\d{2}-\\d{2}$/, \"Nascimento should be in the format YYYY-MM-DD\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Nome is a non-empty string\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData.nome).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Raca is a non-empty string\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.raca).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"dono\": {\r\n        \"id\": 1\r\n    },\r\n    \"nascimento\": \"2023-10-05\",\r\n    \"nome\": \"Ciamês\",\r\n    \"raca\": \"Rasga Saco\",\r\n    \"servicos\": null,\r\n    \"sexo\": \"MASCULINO\"\r\n}",
+									"raw": "{\r\n    \"dono\": {\r\n        \"id\": 1\r\n    },\r\n    \"nascimento\": \"2023-10-05\",\r\n    \"nome\": \"Siamês\",\r\n    \"raca\": \"Rasga Saco\",\r\n    \"servicos\": null,\r\n    \"sexo\": \"MASCULINO\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -438,6 +1384,34 @@
 			"item": [
 				{
 					"name": "BANHO",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response is an array\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response array is empty\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('array');",
+									"  pm.expect(responseData).to.have.lengthOf(0);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -457,6 +1431,51 @@
 				},
 				{
 					"name": "BANHO/id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"The 'abertura' field is present in the response\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.abertura).to.exist;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate that 'animal' object is present in the response\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.animal).to.exist;",
+									"});",
+									"",
+									"",
+									"pm.test(\"The 'dono' object is present in the 'animal' object\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.animal).to.exist.and.to.be.an('object');",
+									"    pm.expect(responseData.animal.dono).to.exist.and.to.be.an('object');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate the 'email' field is present in the 'dono' object\", function () {",
+									"  const responseData = pm.response.json();",
+									"",
+									"  pm.expect(responseData.dono).to.exist.and.to.be.an('object');",
+									"  pm.expect(responseData.dono.email).to.exist;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -477,6 +1496,63 @@
 				},
 				{
 					"name": "BANHO",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.abertura).to.exist;",
+									"    pm.expect(responseData.animal).to.exist;",
+									"    pm.expect(responseData.descricao).to.exist;",
+									"    pm.expect(responseData.id).to.exist;",
+									"    pm.expect(responseData.valor).to.exist;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Valor is a non-negative number\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.valor).to.be.a('number');",
+									"    pm.expect(responseData.valor).to.be.at.least(0);",
+									"});",
+									"pm.test(\"Response status code is 201\", function () {",
+									"  pm.expect(pm.response.code).to.equal(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"  const responseData = pm.response.json();",
+									"",
+									"  pm.expect(responseData).to.be.an('object');",
+									"  pm.expect(responseData.abertura).to.exist.and.to.be.a('string');",
+									"  pm.expect(responseData.animal).to.exist.and.to.be.an('object');",
+									"  pm.expect(responseData.descricao).to.exist.and.to.be.a('string');",
+									"  pm.expect(responseData.id).to.exist.and.to.be.a('number');",
+									"  pm.expect(responseData.valor).to.exist.and.to.be.a('number');",
+									"});",
+									"",
+									"pm.test(\"Email is in a valid format\", function () {",
+									"  const responseData = pm.response.json();",
+									"",
+									"  pm.expect(responseData).to.be.an('object');",
+									"  pm.expect(responseData.animal.dono.email).to.exist.and.to.match(/^[\\w-]+(\\.[\\w-]+)*@[\\w-]+(\\.[\\w-]+)*(\\.[a-zA-Z]{2,})$/);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -505,12 +1581,63 @@
 				},
 				{
 					"name": "TOSA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {",
+									"    pm.expect(pm.response.code).to.equal(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"The 'abertura' field should exist and not be empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.abertura).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate that the 'descricao' field is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.descricao).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"});",
+									"pm.test(\"Response status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate 'nascimento' field in 'dono' is a valid date format\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.animal).to.exist.and.to.be.an('object');",
+									"    pm.expect(responseData.animal.dono).to.exist.and.to.be.an('object');",
+									"    pm.expect(responseData.animal.dono.nascimento).to.exist.and.to.match(/^\\d{4}-\\d{2}-\\d{2}$/);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate 'nascimento' field in 'animal' is a valid date format\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.animal).to.exist.and.to.be.an('object');",
+									"    pm.expect(responseData.animal.nascimento).to.exist.and.to.match(/^\\d{4}-\\d{2}-\\d{2}$/, \"Invalid date format\");",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"animal\": {\r\n        \"id\": 1\r\n    },\r\n    \"descricao\": \"Tosa na Régua\",\r\n    \"valor\": 459\r\n}",
+							"raw": "{\r\n    \"animal\": {\r\n        \"id\": 2\r\n    },\r\n    \"descricao\": \"Tosa na Régua\",\r\n    \"valor\": 459\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -533,6 +1660,40 @@
 				},
 				{
 					"name": "TOSA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response is an array with at least one element\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    pm.expect(responseData).to.have.lengthOf.at.least(1);",
+									"});",
+									"",
+									"",
+									"pm.test(\"The nome field in the animal object is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    ",
+									"    responseData.forEach(function(item) {",
+									"        pm.expect(item).to.be.an('object');",
+									"        pm.expect(item.animal).to.exist.and.to.be.an('object');",
+									"        pm.expect(item.animal.nome).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -552,6 +1713,41 @@
 				},
 				{
 					"name": "TOSA/id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"The 'abertura' field should not be empty\", function () {",
+									"  const responseData = pm.response.json();",
+									"",
+									"  pm.expect(responseData.abertura).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate the 'animal' object\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.animal).to.exist;",
+									"    pm.expect(responseData.animal).to.be.an('object');",
+									"});",
+									"",
+									"",
+									"pm.test(\"The email field within the dono object is not empty\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData.dono.email).to.exist.and.to.not.be.empty;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -572,12 +1768,39 @@
 				},
 				{
 					"name": "CONSULTA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {",
+									"    pm.expect(pm.response.code).to.equal(201);",
+									"});",
+									"",
+									"",
+									"pm.test(\"The 'abertura' field should exist and not be empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.abertura).to.exist.and.to.not.be.empty;",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate that the 'descricao' field is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.descricao).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"animal\": {\r\n        \"id\": 1\r\n    },\r\n    \"descricao\": \"Consulta com o Dr. Dolittle\",\r\n    \"valor\": 1500\r\n}",
+							"raw": "{\r\n    \"animal\": {\r\n        \"id\": 2\r\n    },\r\n    \"descricao\": \"Consulta com o Dr. Dolittle\",\r\n    \"valor\": 1500\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -600,6 +1823,43 @@
 				},
 				{
 					"name": "CONSULTA/id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate the 'abertura' field\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.abertura).to.exist.and.to.be.a('string');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate the 'descricao' field\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.descricao).to.exist;",
+									"});",
+									"",
+									"",
+									"pm.test(\"The 'valor' field should exist and be a number\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('object');",
+									"  pm.expect(responseData.valor).to.exist.and.to.be.a('number');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -616,7 +1876,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost/api/consulta/3",
+							"raw": "http://localhost/api/consulta/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -624,7 +1884,7 @@
 							"path": [
 								"api",
 								"consulta",
-								"3"
+								"4"
 							]
 						}
 					},
@@ -632,6 +1892,46 @@
 				},
 				{
 					"name": "CONSULTA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"The array length must be greater than zero\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array').that.has.lengthOf.at.least(1, \"Array should not be empty\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"Verify that the 'abertura' field is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function (item) {",
+									"        pm.expect(item.abertura).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"    });",
+									"});",
+									"",
+									"",
+									"pm.test(\"Verify that the 'valor' field is a non-negative number\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function (item) {",
+									"        pm.expect(item.valor).to.be.a('number').and.to.be.at.least(0);",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -663,6 +1963,34 @@
 				},
 				{
 					"name": "CONSULTA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate the 'abertura' field\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.abertura).to.exist.and.to.be.a('string');",
+									"});",
+									"",
+									"",
+									"pm.test(\"The 'descricao' field is a non-empty string\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData.descricao).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -692,6 +2020,42 @@
 				},
 				{
 					"name": "BANHO",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate the 'abertura' field\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.abertura).to.exist.and.to.be.a('string');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate the 'descricao' field\", function () {",
+									"  const responseData = pm.response.json();",
+									"",
+									"  pm.expect(responseData).to.be.an('object');",
+									"  pm.expect(responseData.descricao).to.exist.and.to.be.a('string');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate the 'valor' field\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData.valor).to.exist.and.to.be.a('number');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -721,6 +2085,41 @@
 				},
 				{
 					"name": "TOSA",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Validate the 'abertura' field\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.abertura).to.exist.and.to.be.a('string');",
+									"});",
+									"",
+									"",
+									"pm.test(\"Email is in a valid format\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('object');",
+									"    pm.expect(responseData.animal.dono.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/, \"Email is not in a valid format\");",
+									"});",
+									"",
+									"",
+									"pm.test(\"The 'dono' object should exist and be an object\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData.dono).to.exist.and.to.be.an('object');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -750,6 +2149,41 @@
 				}
 			],
 			"description": "Aqui é possível realizar o cadastramento de um serviço prestado pelo Petshop:  \n  \n\n<img src=\"https://content.pstmn.io/e3b75eff-25cc-4224-a7ed-8fa59ff4af1c/aW1hZ2UucG5n\" alt=\"Exemplo%20do%20cadastramento%20de%20um%20serviço\" height=\"781\" width=\"2015\">"
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "privateKey",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "eyJhbGciOiJIUzI1NiJ9.eyJhdXRob3JpdGllcyI6W3siaWQiOjEsIm5vbWUiOiJjbGllbnRlIn1dLCJwZXNzb2EiOiJCZW5lZnJhbmNpcyBkbyBOYXNjaW1lbnRvIiwiZXhwIjoxNjk2NjM3MTY4fQ.4VaZHnu29N-TTRt42mXEEyxeUB2T2CFbKcHKOOMrp-k",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
