@@ -1,0 +1,1 @@
+select a.tp_animal, count(*) from TB_animal a group by a.tp_animal;
