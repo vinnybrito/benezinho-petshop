@@ -8,8 +8,11 @@ import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-
+@Entity
+@Table(name = "TB_CONSULTA")
+@DiscriminatorValue("CONSULTA")
 public class Consulta extends Servico {
+
     public Consulta() {
     }
 

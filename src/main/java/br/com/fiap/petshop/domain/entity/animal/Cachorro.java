@@ -12,14 +12,14 @@ import java.time.LocalDate;
 import java.util.Set;
 
 
-
+@Entity
+@Table(name = "TB_CACHORRO")
+@DiscriminatorValue("CACHORRO")
 public class Cachorro extends Animal{
 
     public Cachorro() {
         super("CACHORRO");
     }
-
-
 
     public Cachorro(Long id, String nome, Sexo sexo, LocalDate nascimento, String raca, String descricao, String observacao, PessoaFisica dono) {
         super(id, nome, sexo, nascimento, raca, descricao, observacao, "CACHORRO", dono);

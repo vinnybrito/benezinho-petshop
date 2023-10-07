@@ -10,44 +10,54 @@ import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Set;
 
-
-
+@Entity
+@Table(name = "TB_ANIMAL")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "TP_ANIMAL")
 public class Animal {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_ANIMAL")
+    @SequenceGenerator(name = "SQ_ANIMAL", sequenceName = "SQ_ANIMAL", allocationSize = 1, initialValue = 1)
+    @Column(name = "ID_ANIMAL")
     private Long id;
 
-
+    @Column(name = "NM_ANIMAL")
     private String nome;
 
+    @Enumerated(EnumType.STRING)
     private Sexo sexo;
 
+    @Column(name = "DT_NASCIMENTO")
     private LocalDate nascimento;
 
+    @Column(name = "RC_ANIMAL")
     private String raca;
 
-
+    @Column(name = "DS_ANIMAL")
     private String descricao;
 
+    @Column(name = "OBS_ANIMAL")
     private String observacao;
 
-
+    @Column(name = "TIPO_ANIMAL")
     private String tipo;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(
+            name = "DONO",
+            referencedColumnName = "ID_PESSOA",
+            foreignKey = @ForeignKey(name = "FK_DONO_ANIMAL")
 
-
+    )
     private Pessoa dono;
-
-
 
     public Animal() {
     }
 
-
     public Animal(String tipo) {
         this.tipo = tipo;
     }
-
 
     public Animal(Long id, String nome, Sexo sexo, LocalDate nascimento, String raca, String descricao, String observacao, String tipo, Pessoa dono) {
         this.id = id;
@@ -141,7 +151,6 @@ public class Animal {
         this.dono = dono;
         return this;
     }
-
 
     @Override
     public String toString() {
