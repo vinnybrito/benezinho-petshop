@@ -46,8 +46,8 @@ public class Animal {
     @JoinColumn(
             name = "DONO",
             referencedColumnName = "ID_PESSOA",
-            foreignKey = @ForeignKey(name = "FK_DONO_ANIMAL")
-
+            foreignKey = @ForeignKey(name = "FK_DONO_ANIMAL"),
+            nullable = false
     )
     private Pessoa dono;
 

@@ -20,7 +20,7 @@ public class Documento implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(
-            name = "DOCUMETO_PESSOA",
+            name = "DOCUMENTO_PESSOA",
             referencedColumnName = "ID_PESSOA",
             foreignKey = @ForeignKey(name = "FK_DOCUMENTO_PESSOA")
     )

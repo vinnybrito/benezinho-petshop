@@ -30,7 +30,6 @@ public class Telefone {
     public Telefone() {
     }
 
-
     public Telefone(int ddd, String numero, Pessoa pessoa) {
         this.ddd = ddd;
         this.numero = numero;
@@ -43,7 +42,6 @@ public class Telefone {
         this.numero = numero;
         this.pessoa = pessoa;
     }
-
 
     public Long getId() {
         return id;
@@ -81,7 +79,6 @@ public class Telefone {
         return this;
     }
 
-
     @Override
     public String toString() {
         return "Telefone{" +
@@ -92,4 +89,3 @@ public class Telefone {
                 '}';
     }
 }
-
