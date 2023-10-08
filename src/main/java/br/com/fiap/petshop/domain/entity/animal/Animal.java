@@ -13,7 +13,6 @@ import java.util.Set;
 @Entity
 @Table(name = "TB_ANIMAL")
 @Inheritance(strategy = InheritanceType.JOINED)
-@DiscriminatorColumn(name = "TP_ANIMAL")
 public class Animal {
 
     @Id
@@ -40,7 +39,7 @@ public class Animal {
     @Column(name = "OBS_ANIMAL")
     private String observacao;
 
-    @Column(name = "TIPO_ANIMAL")
+    @Column(name = "TP_ANIMAL")
     private String tipo;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
